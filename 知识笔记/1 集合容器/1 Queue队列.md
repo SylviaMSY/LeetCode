@@ -26,7 +26,7 @@ addAll、clear、contains、containsAll、equals、hashCode、iterator、remove�
 
 
 
-## 2 Queue 子接口
+## 2 Queue 子接口——Deque
 
 #### Deque 双端队列：同时支持FIFO、FILO
 

@@ -1,0 +1,45 @@
+## BFS框架模板
+
+
+
+``` java
+/* 
+* 1. 找到起点、终点（终止条件）
+* 2. 抽象：相邻元素，判断是否已访问（否）：加入待选列表、增加已访问表示
+* 3. step++
+*/
+		Queue<String> q = new LinkedList();//1. 队列--待选列表
+        Set visited = new HashSet();//2. 已访问
+        q.offer("0000"); //start
+        visited.add("0000"); //初始
+        int step = 0;
+
+        while(!q.isEmpty()){
+            int sz = q.size();
+            for(int i=0;i<sz;i++){ // 3. 开始访问列表里的值
+                String str = q.poll();// 依次取出
+                if(deads.contains(str)){ // 跳过死路
+                    continue;
+                }
+                if(str.equals(target)){ // 6. 找到目标，返回step
+                    return step;
+                }
+                for(int j=0;j<4;j++){ // 4.将上下左右的值，装入待选列表
+                    String s = plus(str,j);
+                    if(!visited.contains(s)){ //排除重复
+                        q.offer(s);
+                        visited.add(s);
+                    }
+                    String ss = minus(str,j);
+                    if(!visited.contains(ss)){
+                        q.offer(ss);
+                        visited.add(ss);
+                    }
+                }
+            }
+            step++; // 5. step++
+        }
+        return -1;
+    }
+```
+
